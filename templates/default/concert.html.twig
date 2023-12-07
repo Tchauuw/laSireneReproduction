@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="wrap">
+        <article class="evenement">
+            <header><h2>{{ concert.artiste.nom }}</h2></header>
+            <h3 class="date">{{ concert.dateConcert | format_date('full', locale='fr') }}</h3>
+            <img src="{{ asset('assets/imgGroupes/'~concert.artiste.photo) }}" alt="{{ concert.artiste.photo }}">
+            <h4>{{ concert.artiste.prenom }} {{ concert.artiste.nom }}</h4>
+            <p>{{ concert.description | raw}}</p>
+            <h5>{{ concert.tarif }}€</h5>
+        </article>
+    </main>
+{% endblock %}

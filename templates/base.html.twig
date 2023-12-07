@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}La sirène{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        {% endblock %}
+        <link rel="Shortcut Icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" >
+    </head>
+<body cz-shortcut-listen="true">
+<header>
+    <div class="wrap">
+        <a href="{{ path('AModifier') }}">
+            <img class="logo" src="{{ asset('assets/deco/logo.png') }}" alt="La Sirene, Espace musiques actuelles">
+        </a>
+        {{ render(controller('App\\Controller\\DefaultController::formNewsletter')) }}
+        <img class="xlr" alt="XLR" src="{{ asset('assets/deco/xlr.jpg') }}">
+        <a class="agglo" href="http://www.agglo-larochelle.fr/">
+            <img alt="Communauté d'agglomérations de La Rochelle" src="{{ asset('assets/deco/t_agglo.jpg') }}">
+        </a>
+    </div>
+</header>        <nav>
+    <ul class="wrap">
+        <li><a href="{{ path('app_homepage') }}">La sirène</a>
+            <ul>
+                <li><a href="#">Le Projet</a></li>
+                <li><a href="#">L'Equipe</a></li>
+                <li><a href="#">Le Disquaire</a></li>
+                <li><a href="#">Photos / Vidéos</a></li>
+                <li><a href="#">Fiche Technique</a></li>
+                <li><a href="#">Plan du lieu</a></li>
+            </ul>
+
+        </li>
+        <li><a href="#">Programmation</a></li>
+        <li><a href="#">Studios</a>
+            <ul>
+                <li><a href="#">Répétition</a></li>
+                <li><a href="#">Enregistrement</a></li>
+                <li><a href="#">Le Dock</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Archives/Presse</a>
+            <ul>
+                <li><a href="#">Archives</a></li>
+                <li><a href="#">Presse</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Info pratiques</a>
+            <ul>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Horaires</a></li>
+                <li><a href="#">Billeterie</a></li>
+                <li><a href="#">Abonnement</a></li>
+                <li><a href="#">Accès</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Partenaires</a></li>
+        <li class="shop"><a href="#"><img src="{{ asset('assets/deco/shshop.png') }}" alt="vers la boutique"> </a></li>
+        <li class="resa"><a href="#"><img src="{{ asset('assets/deco/shresa.jpg') }}" alt="Billeterie en ligne"> </a></li>
+    </ul>
+
+</nav>
+{% block body %}{% endblock %}
+<section class="formBas wrap">
+    {{ render(controller('App\\Controller\\DefaultController::formNewsletter')) }}
+    <nav>
+        <ul>
+            <li><a href="#"><img alt="Facebook" src="{{ asset('assets/deco/t_facebook.jpg') }}"></a></li>
+            <li><a href="#"><img alt="Twitter" src="{{ asset('assets/deco/t_twitter.jpg') }}"></a></li>
+            <li><a href="#"><img alt="Youtube" src="{{ asset('assets/deco/t_youtube.jpg') }}"></a></li>
+            <li><a href="#"><img alt="Facebook" src="{{ asset('assets/deco/t_soundcloud.jpg') }}"></a></li>
+        </ul>
+    </nav>
+
+</section>
+<footer class="wrap">
+    <nav>
+        <ul>
+            <li><a href="#">contacts</a></li>
+            <li><a href="#">mentions légales</a></li>
+            <li><a href="#">© Tous droits réservés</a></li>
+        </ul>
+    </nav>
+</footer>
+</body>
+</html>

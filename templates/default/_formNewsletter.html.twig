@@ -1,0 +1,6 @@
+{% set form = formObject.createView %}
+{{ form_start(form, {'action': path('newsletter'),'method': 'POST'}) }}
+{{ form_label(form.email) }}
+{{ form_widget(form.email) }}
+<input type="submit" value="ok">
+{{ form_end(form) }}

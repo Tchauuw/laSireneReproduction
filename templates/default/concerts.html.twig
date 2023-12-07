@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="wrap">
+        <header><h2>Prochains concerts</h2></header>
+        <ul class="listeEvenements">
+            {% for concert in concerts %}
+            <li class="evenement">
+                <h3 class="date">{{ concert.dateConcert | format_date('full', locale='fr') }}</h3>
+                <a href="{{ path('concert',{'id': concert.id }) }}">
+                    <img src="{{ asset('assets/imgGroupes/'~concert.artiste.image) }}" alt="{{ concert.artiste.nom }}">
+                    <h4>{{ concert.artiste.prenom }} {{ concert.artiste.nom }}</h4>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <aside class="wrap">
+        <header><h2>Concerts passés</h2></header>
+        <ul class="listeEvenements">
+            {% for concert in concertsPasses %}
+            <li class="evenement">
+                <h3 class="date">{{ concert.dateConcert | format_date('full', locale='fr') }}</h3>
+                <a href="{{ path('concert',{'id': concert.id }) }}">
+                    <img src="{{ asset('assets/imgGroupes/'~concert.artiste.image) }}" alt="{{ concert.artiste.nom }}">
+                    <h4>{{ concert.artiste.prenom }} {{ concert.artiste.nom }}</h4>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+{% endblock %}
