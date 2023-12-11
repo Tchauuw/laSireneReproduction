@@ -25,7 +25,9 @@ class DashboardController extends AbstractDashboardController
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(AbstractDashboardController::class)->generateUrl());
+        // le crud controller était mis sur la classe AbstractCrudController et non sur ArtisteCrudController par exemple.
+        // de plus, le chemin de l'url était mal écrit car il restait une trace de AbstractCrudController
+        return $this->redirect($adminUrlGenerator->setController(ArtisteCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -66,8 +68,7 @@ public function configureActions() : Actions{
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Administration de la sirène')
-            ->setLocales(['fr', 'en']);
+            ->setTitle('Administration de la sirène');
     }
 
     public function configureMenuItems(): iterable
